@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS Testing LABTech - Advanced Laboratory Testing Services</title>
+    <meta name="description" content="PS Testing LABTech provides comprehensive laboratory testing services including chemical analysis, environmental testing, proficiency testing, and reference materials.">
+    <meta name="keywords" content="laboratory testing, chemical analysis, environmental testing, proficiency testing, reference materials, ISO accredited">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/logo_PILT2.jpg">
+</head>
+
+<div id="preloader" style="background:#fff;position:fixed;top:0;right:0;bottom:0;left:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+    <img src="assets/images/logo_PILT2.jpg" style="width:70px;" />
+    <span style="color:#247194;font-size:1.3rem;font-weight:600;">loading PILT..</span>
+</div>
+
+<script>
+    // window.addEventListener('load',function(){
+    // setTimeout(function(){
+    //     document.getElementById('preloader').style.display='none';
+    // },500);
+    // });
+</script>
+
+<body>
+    <!-- Header -->
+    <!-- <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/images/logo_PILT2.jpg" alt="PS Testing LABTech Logo">
+                <h1>PRIYAN INTERNATIONAL LAB AND TECHNOLOGY</h1>
+            </div>
+
+            <nav>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+
+                    <li class="dropdown">
+                        <a href="testing-services.html">Testing Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="services/chemical-analysis.html">Chemical Analysis</a>
+                            <a href="services/environmental-testing.html">Environmental Testing</a>
+                            <a href="services/materials-testing.html">Materials Testing</a>
+                            <a href="services/microbiological-testing.html">Microbiological Testing</a>
+                            <a href="services/food-beverage-testing.html">Food & Beverage Testing</a>
+                            <a href="services/pharmaceutical-testing.html">Pharmaceutical Testing</a>
+                            <a href="services/toxicology-testing.html">Toxicology Testing</a>
+                            <a href="services/forensic-analysis.html">Forensic Analysis</a>
+                            <a href="services/calibration-services.html">Calibration Services</a>
+                            <a href="services/method-development.html">Method Development</a>
+                        </div>
+                    </li>
+
+                    <li><a href="pt-services.html">PT Services</a></li>
+
+                    <li class="dropdown">
+                        <a href="other-services.html">Other Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="other-services.html#training">Training</a>
+                            <a href="other-services.html#consultation">Consultation</a>
+                            <a href="other-services.html#equipment-rental">Equipment Rental</a>
+                            <a href="other-services.html#data-analysis">Data Analysis</a>
+                            <a href="other-services.html#quality-assurance">Quality Assurance</a>
+                        </div>
+                    </li>
+
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header> -->
+
+    <!-- Loading overlay -->
+    <!-- <div class="loading-overlay" id="loading-overlay">
+        <div class="loader">
+            <i class="fas fa-flask"></i>
+            <div class="loading-text">Loading PRIYAN INTERNATIONAL LAB AND TECHNOLOGY...</div>
+        </div>
+    </div> -->
+
+    <!-- <div class="logo-placeholder">
+        <i class="fas fa-flask"></i>
+        <a href="index.html" class="logo-link">
+        <img src="assets/images/logo_PILT2.jpg" alt="Testing Lab Logo"  />
+        </a>
+    </div> -->
+    <!-- Header -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section animate-slide-in-left">
+                    <!-- <div class="logo-placeholder">
+                        <i class="fas fa-flask"></i>
+                        <a href="index.html" class="logo-link">
+                        <img src="assets/images/logo_PILT_header.jpg" alt="Testing Lab Logo"  />
+                        </a>
+                    </div> -->
+                    
+                    <div class="company-info">
+                        <h1 class="company-name typewriter" data-text="PRIYAN INTERNATIONAL LAB AND TECHNOLOGY">PRIYAN INTERNATIONAL LAB AND TECHNOLOGY</h1>
+                        <p class="tagline">Professional Testing Laboratory Services</p>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <!-- Navigation -->
+                <nav class="nav" id="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item nav-item-1">
+                            <a href="index.html" class="nav-link active" data-tab="home">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item nav-item-2 dropdown">
+                            <a href="testing-services.html" class="nav-link dropdown-toggle">
+                                <i class="fas fa-microscope"></i> Testing Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item-1"><a href="services/chemical-analysis.html" class="dropdown-link" data-tab="food-agriculture">Food & Agriculture Products</a></li>
+                                <li class="dropdown-item-2"><a href="#" class="dropdown-link" data-tab="water-waste">Water, Waste Water & Residue</a></li>
+                                <li class="dropdown-item-3"><a href="#" class="dropdown-link" data-tab="pharmaceuticals">Pharmaceuticals</a></li>
+                                <li class="dropdown-item-4"><a href="#" class="dropdown-link" data-tab="cosmetics">Cosmetics & Skin Care</a></li>
+                                <li class="dropdown-item-5"><a href="#" class="dropdown-link" data-tab="personal-care">Home & Personal Care</a></li>
+                                <li class="dropdown-item-6"><a href="#" class="dropdown-link" data-tab="fertiliser">Fertiliser</a></li>
+                                <li class="dropdown-item-6"><a href="#" class="dropdown-link" data-tab="herbal">Herbal & Ayurveda</a></li>
+                                <li class="dropdown-item-6"><a href="#" class="dropdown-link" data-tab="dietary">Dietary Supplements</a></li>
+                                <li class="dropdown-item-6"><a href="#" class="dropdown-link" data-tab="medical">Medical Devices</a></li>
+                                <li class="dropdown-item-6"><a href="#" class="dropdown-link" data-tab="polymer">Polymer & Pesticides</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-3 dropdown">
+                            <a href="other-services.html" class="nav-link dropdown-toggle">
+                                <i class="fas fa-cogs"></i> Other Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item-1"><a href="#" class="dropdown-link" data-tab="training">Training</a></li>
+                                <li class="dropdown-item-2"><a href="#" class="dropdown-link" data-tab="method-development">Analytical Method Development & Validation</a></li>
+                                <li class="dropdown-item-3"><a href="#" class="dropdown-link" data-tab="consultancies">Projects & Consultancies</a></li>
+                                <li class="dropdown-item-4"><a href="#" class="dropdown-link" data-tab="inspection">Inspection</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-4">
+                            <a href="about-us.html" class="nav-link" data-tab="about">
+                                <i class="fas fa-info-circle"></i> About Us
+                            </a>
+                        </li>
+                        <li class="nav-item nav-item-5">
+                            <a href="contact-us.html" class="nav-link" data-tab="contact">
+                                <i class="fas fa-envelope"></i> Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <!-- <section class="hero">
+        <div class="container">
+            <h1>Advanced Laboratory Testing Services</h1>
+            <p>Delivering precise, reliable, and accredited testing solutions for industries worldwide. Your trusted partner for quality assurance and regulatory compliance.</p>
+            <a href="testing-services.html" class="cta-button">Explore Our Services</a>
+            <a href="contact-us.html" class="cta-button">Get a Quote</a>
+        </div>
+    </section> -->
+
+    <section id="hero" class="hero animate-slide-in-left">
+        <div class="hero__overlay"></div>
+        <div class="container hero__content z-10">
+            <h2 class="typewriter" data-text="">PRIYAN INTERNATIONAL LAB AND TECHNOLOGY</h2>
+            <p class="animate-fade-in-up" style="animation-delay: 1s;">Reliable, Accurate, and Professional Testing Services for Multiple Industries</p>
+            <a href="contact-us.html" class="animate-fade-in-up" data-tab="contact">
+                <!-- <button class="btn btn--primary pulse-button" style="animation-delay: 1.2s;">Request a Quote</button> -->
+            <button class="btn btn--primary pulse-button animate-fade-in-up" style="animation-delay: 1.5s;">Get Started Today</button>
+            </a>
+        </div>
+    </section>  
+
+    <!-- Main Content -->
+    <main>
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <h2>Our Core Services</h2>
+                <div class="services-grid">
+                    <!-- Testing Services Card -->
+                    <div class="service-card" data-link="testing-services.html">
+                        <div class="icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Testing Services</h3>
+                        <p>Comprehensive analytical testing across multiple disciplines including chemical, environmental, materials, and microbiological analysis.</p>
+
+                        <div class="card-hover-content">
+                            <h4>Key Testing Areas</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Chemical Analysis</li>
+                                <li><i class="fas fa-check"></i> Environmental Testing</li>
+                                <li><i class="fas fa-check"></i> Materials Testing</li>
+                                <li><i class="fas fa-check"></i> Microbiological Testing</li>
+                                <li><i class="fas fa-check"></i> Food & Beverage Testing</li>
+                                <li><i class="fas fa-check"></i> Pharmaceutical Testing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Proficiency Testing Card -->
+                    <div class="service-card" data-link="pt-services.html">
+                        <div class="icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Proficiency Testing</h3>
+                        <p>Inter-laboratory comparison programs to validate testing competency and ensure analytical quality across your laboratory operations.</p>
+
+                        <div class="card-hover-content">
+                            <h4>PT Programs</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Inter-laboratory Comparisons</li>
+                                <li><i class="fas fa-check"></i> Quality Assurance</li>
+                                <li><i class="fas fa-check"></i> Accreditation Support</li>
+                                <li><i class="fas fa-check"></i> Method Validation</li>
+                                <li><i class="fas fa-check"></i> Performance Monitoring</li>
+                                <li><i class="fas fa-check"></i> Statistical Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- RMP Card -->
+                    <div class="service-card" data-link="other-services.html#reference-materials">
+                        <div class="icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>RMP (Reference Material Producers)</h3>
+                        <p>Certified reference materials and standards production following ISO 17034 guidelines for analytical quality control and calibration.</p>
+
+                        <div class="card-hover-content">
+                            <h4>Reference Materials</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Certified Standards</li>
+                                <li><i class="fas fa-check"></i> Custom Materials</li>
+                                <li><i class="fas fa-check"></i> Traceability</li>
+                                <li><i class="fas fa-check"></i> ISO 17034 Compliance</li>
+                                <li><i class="fas fa-check"></i> Quality Control</li>
+                                <li><i class="fas fa-check"></i> Documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us Section -->
+                <div class="container" style="margin-top: 4rem;">
+                    <div class="about-content">
+                        <h2>Why Choose PS Testing LABTech?</h2>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                            <div>
+                                <h3><i class="fas fa-medal" style="color: #617742; margin-right: 0.5rem;"></i>ISO Accredited</h3>
+                                <p>Our laboratory maintains ISO/IEC 17025 accreditation, ensuring the highest standards of analytical quality and reliability in all testing procedures.</p>
+                            </div>
+                            <div>
+                                <h3><i class="fas fa-clock" style="color: #617742; margin-right: 0.5rem;"></i>Fast Turnaround</h3>
+                                <p>We understand the importance of timely results. Our streamlined processes ensure quick delivery without compromising accuracy.</p>
+                            </div>
+                            <div>
+                                <h3><i class="fas fa-users" style="color: #617742; margin-right: 0.5rem;"></i>Expert Team</h3>
+                                <p>Our highly qualified scientists and technicians bring decades of experience across multiple analytical disciplines.</p>
+                            </div>
+                            <div>
+                                <h3><i class="fas fa-microscope" style="color: #617742; margin-right: 0.5rem;"></i>Advanced Equipment</h3>
+                                <p>State-of-the-art instrumentation and cutting-edge analytical technologies ensure precise and reliable results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PS Testing LABTech</h3>
+                <p>Your trusted partner for comprehensive laboratory testing services. We deliver precision, reliability, and excellence in every analysis.</p>
+                <div style="margin-top: 1rem;">
+                    <i class="fas fa-certificate" style="color: #617742; margin-right: 0.5rem;"></i>
+                    <span>ISO/IEC 17025 Accredited</span>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="testing-services.html">Testing Services</a></li>
+                    <li><a href="pt-services.html">Proficiency Testing</a></li>
+                    <li><a href="other-services.html">Other Services</a></li>
+                    <li><a href="services/calibration-services.html">Calibration Services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="contact-us.html#quote">Request Quote</a></li>
+                    <li><a href="other-services.html#quality-assurance">Quality Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@pstestinglabtech.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Laboratory Drive<br>Research Park, State 12345</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 PS Testing LABTech. All rights reserved. | ISO/IEC 17025 Accredited Laboratory</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
