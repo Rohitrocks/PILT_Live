@@ -1,4 +1,4 @@
-// PS Testing LABTech - Main JavaScript File
+// PRIYAN INTERNATIONAL LAB AND TECHNOLOGY - Main JavaScript File
 const data = {
     heroImages: [
         'https://unsplash.it/1200/800?image=100',
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeElements();
     initializeAnimations();
     initHeroCarousel();
-    // initializeNavigation();
+    initializeNavigation();
     initializeMobileMenu();
     // initializeContactForm();
     initializeDropdowns();
@@ -187,8 +187,10 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-      preloader.style.opacity = '0';
-      setTimeout(() => preloader.style.display = 'none', 500);
+        console.time('startPreloader');
+        preloader.style.opacity = '0';
+        setTimeout(() => preloader.style.display = 'none', 300);
+        console.timeEnd('startPreloader');
     }
 });
 // Utility functions
@@ -334,13 +336,14 @@ function showTab(tabId) {
     const currentTabElement = document.querySelector('.tab-content.active, .service-tabs.active');
     if (currentTabElement) {
         currentTabElement.classList.add('fade-out');
-        
+        console.log('show tab: currentTabElement found, starting fade-out animation');
         setTimeout(() => {
             currentTabElement.classList.remove('active', 'fade-out');
             currentTabElement.style.display = 'none';
-            // showNewTab(tabId);
+            showNewTab(tabId);
         }, 300);
     } else {
+        console.log('show tab: currentTabElement not found, proceeding to show new tab directly', tabId);
         showNewTab(tabId);
     }
 }
@@ -351,37 +354,38 @@ function showNewTab(tabId) {
         content.style.display = 'none';
     });
     
-    const serviceContainer = document.querySelector('.service-tabs');
-    if (serviceContainer) {
-        serviceContainer.classList.remove('active');
-        serviceContainer.style.display = 'none';
-    }
+    // const serviceContainer = document.querySelector('.service-tabs');
+    // if (serviceContainer) {
+    //     serviceContainer.classList.remove('active');
+    //     serviceContainer.style.display = 'none';
+    // }
     
-    // updatePageTitle(tabId);
+    // upd  atePageTitle(tabId);
     
     // if (serviceData[tabId]) {
     //     showServicePage(tabId);
     // } else {
-        const targetTab = document.getElementById(tabId);
-        if (targetTab) {
-            targetTab.style.display = 'block';
-            setTimeout(() => {
-                targetTab.classList.add('active');
-                
-                if (observerInitialized) {
-                    initializeTabAnimations(targetTab);
-                }
-                
-                // Reset and setup counters if returning to home tab
-                if (tabId === 'home') {
-                    countersAnimated = false;
-                    setTimeout(() => {
-                        setupCounterObserver();
-                    }, 500);
-                }
-                
-                isAnimating = false;
-            }, 50);
+    const targetTab = document.getElementById(tabId);
+    console.log(`[PILT LABTech] Target tab element: ${targetTab}`);
+    if (targetTab) {
+        targetTab.style.display = 'block';
+        setTimeout(() => {
+            targetTab.classList.add('active');
+            
+            if (observerInitialized) {
+                initializeTabAnimations(targetTab);
+            }
+            
+            // Reset and setup counters if returning to home tab
+            if (tabId === 'home') {
+                countersAnimated = false;
+                setTimeout(() => {
+                    setupCounterObserver();
+                }, 500);
+            }
+            
+            isAnimating = false;
+        }, 50);
         } else {
             isAnimating = false;
         }
@@ -572,28 +576,147 @@ function initializeTypewriter() {
     });
 }
 
+function updatePageTitle(tabId) {
+    const titleMap = {
+        'home': 'Advanced Laboratory Testing Solutions',
+        'about': 'About PILT Testing LABTech',
+        'contact': 'Contact Us',
+        'testing-services': 'Testing Services Overview',
+        'pt-services': 'Proficiency Testing Services',
+        'rmp-services': 'Reference Material Process',
+        'food-agriculture': 'Food & Agriculture Products Testing',
+        'water-waste': 'Water & Wastewater Testing',
+        'pharmaceuticals': 'Pharmaceutical Testing Services',
+        'cosmetics': 'Cosmetics & Skin Care Testing',
+        'personal-care': 'Home & Personal Care Testing',
+        'fertiliser': 'Fertiliser Testing Services',
+        'herbal': 'Herbal & Ayurveda Testing',
+        'dietary': 'Dietary Supplements Testing',
+        'medical': 'Medical Devices Testing',
+        'polymer': 'Polymer & Pesticides Testing',
+        'training': 'Training Services',
+        'method-development': 'Method Development & Validation',
+        'consultancies': 'Projects & Consultancies',
+        'inspection': 'Inspection Services'
+    };
+    
+    const newTitle = titleMap[tabId] || 'PILT Testing LABTech';
+    document.title = `${newTitle} - PILT Testing LABTech`;
+}
+
+function initializeTabAnimations(tabElement) {
+    const animatedElements = tabElement.querySelectorAll('.animate-fade-in-up, .animate-slide-in-left, .animate-contact-item, .animate-benefit');
+    
+    animatedElements.forEach((el, index) => {
+        el.classList.remove('animated');
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.classList.add('animated');
+        }, index * 100);
+    });
+}
+
+// Enhanced Service Page Generation
+function showServicePage(serviceId) {
+    const service = serviceData[serviceId];
+    if (!service) {
+        isAnimating = false;
+        return;
+    }
+    
+    let serviceContainer = document.querySelector('.service-tabs');
+    if (!serviceContainer) {
+        serviceContainer = document.createElement('div');
+        serviceContainer.className = 'service-tabs';
+        document.querySelector('.main .container').appendChild(serviceContainer);
+    }
+    
+    serviceContainer.innerHTML = `
+        <div class="service-page">
+            <h2>${service.title}</h2>
+            <p class="service-description">${service.description}</p>
+            
+            <div class="service-features">
+                <h3>Key Features & Services</h3>
+                <ul class="features-list">
+                    ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="service-benefits">
+                <h3>Benefits</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-certificate"></i>
+                        <h4>Certified Excellence</h4>
+                        <p>All testing performed to international standards with full accreditation.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Fast Turnaround</h4>
+                        <p>Quick and reliable results to meet your project deadlines.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Quality Assurance</h4>
+                        <p>Rigorous quality control ensures accurate and reliable results.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-cta">
+                <p>Need more information about our ${service.title.toLowerCase()} testing services?</p>
+                <button class="btn btn--primary pulse-button">Contact Us Today</button>
+            </div>
+        </div>
+    `;
+    
+    serviceContainer.style.display = 'block';
+    setTimeout(() => {
+        serviceContainer.classList.add('active');
+        isAnimating = false;
+        
+        const featureItems = serviceContainer.querySelectorAll('.features-list li');
+        featureItems.forEach((item, index) => {
+            item.style.animationDelay = `${(index + 1) * 0.1}s`;
+        });
+    }, 50);
+}
+
 // Navigation functionality
 function initializeNavigation() {
     console.log('[PILT LABTech] Initializing navigation...');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const tabId = this.getAttribute('data-tab');
+            const tabId = this.getAttribute('data-ta');
+            const href = this.getAttribute('href');
+            console.log(`[PILT LABTech] Navigation link clicked: ${this.textContent} (tabId: ${tabId}, href: ${href})`);
+            // Only handle tab navigation if data-tab exists
             if (tabId && !isAnimating) {
+                e.preventDefault();
+                e.stopPropagation();
+
                 console.log(`[PILT LABTech] Navigating to tab: ${tabId}`);
                 showTab(tabId);
                 updateActiveNavLink(this);
-                
+
                 if (mainNav && mainNav.classList.contains('active')) {
                     toggleMobileMenu();
                 }
-                
+
                 closeAllDropdowns();
+            } else if (href && href !== '#') {
+                // For normal links, allow default navigation
+                // Optionally, update active state for page navigation
+                updateActiveNavLink(this);
             }
+            // If href is "#" and no data-tab, do nothing
         });
-        
+
         link.addEventListener('mouseenter', function() {
             if (!this.classList.contains('dropdown-toggle')) {
                 this.style.transform = 'scale(1.05)';
@@ -606,6 +729,30 @@ function initializeNavigation() {
             }
         });
     });
+}
+
+// Update active navigation link
+function updateActiveNavLink(activeLink) {
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    if (activeLink.classList.contains('nav-link') && !activeLink.classList.contains('dropdown-toggle')) {
+        activeLink.classList.add('active');
+        
+        activeLink.style.animation = 'pulse 0.5s ease';
+        setTimeout(() => {
+            activeLink.style.animation = 'none';
+        }, 500);
+    } else if (activeLink.classList.contains('dropdown-link')) {
+        const parentDropdown = activeLink.closest('.dropdown');
+        if (parentDropdown) {
+            const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
+            if (dropdownToggle) {
+                dropdownToggle.classList.add('active');
+            }
+        }
+    }
 }
 
 // Fixed Mobile Menu functionality

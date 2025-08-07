@@ -1,4 +1,4 @@
-# PS Testing LABTech Website
+# PRIYAN INTERNATIONAL LAB AND TECHNOLOGY Website
 
 ## Deployment Instructions for GoDaddy
 
