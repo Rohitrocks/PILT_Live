@@ -1491,24 +1491,13 @@ main {
 }
 
 .hero-buttons {
-    /* background-color: var(--pilt-primary);
-    color: var(--pilt-text-light);
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    gap: 0.5rem; */
+    
     display: flex;
     gap: 1rem;
     justify-content: center;
     margin-top: 1.5rem;
 }
 
-/* .hero-buttons:hover {
-    background-color: var(--pilt-secondary);
-} */
 
 .cta-button {
     display: inline-block;
