@@ -1441,8 +1441,8 @@ main {
 
 .hero {
   position: relative;
-  height: 65vh;
-  min-height: 220px;
+  height: 55vh;
+  /* min-height: 220px; */
   display: flex;
   align-items: center;
   justify-content: center;
