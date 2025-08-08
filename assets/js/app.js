@@ -97,6 +97,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    //nav link highlighting
+    var navLinks = document.querySelectorAll('.nav-link');
+    var current = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        var href = link.getAttribute('href');
+        // Highlight if href matches current page
+        if (href === current) {
+            link.classList.add('active');
+        }
+        // Highlight parent if any dropdown child matches
+        var parentLi = link.closest('.dropdown');
+        if (parentLi) {
+            var dropdownLinks = parentLi.querySelectorAll('.dropdown-link');
+            dropdownLinks.forEach(function(dLink) {
+                var dHref = dLink.getAttribute('href');
+                if (dHref && dHref.indexOf(current) !== -1) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+    
     // Form validation and enhancement
     const contactForm = document.querySelector('#contact-form');
 
