@@ -658,7 +658,7 @@ select.form-control {
   padding-left: var(--space-16);
 }
 
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   .container {
     max-width: var(--container-sm);
   }
@@ -677,7 +677,7 @@ select.form-control {
   .container {
     max-width: var(--container-xl);
   }
-}
+} */
 
 /* Utility classes */
 .flex {
@@ -2101,7 +2101,8 @@ footer {
     .testing-service-item {
         padding: 1.5rem;
     }
-}
+    
+} 
 
 /* Animation Classes */
 .fade-in {
@@ -2145,3 +2146,4 @@ footer {
         break-inside: avoid;
     }
 }
+

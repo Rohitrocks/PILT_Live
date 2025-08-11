@@ -131,8 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const name = document.querySelector('#name').value.trim();
             const email = document.querySelector('#email').value.trim();
             const message = document.querySelector('#message').value.trim();
+            const phone = document.querySelector('#phone').value.trim();
+            const company = document.querySelector('#company').value.trim();
 
-            if (!name || !email || !message) {
+            if (!name || !email || !message || !phone || !company) {
                 showAlert('Please fill in all required fields.', 'error');
                 return;
             }
@@ -142,9 +144,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            if (!isValidPhone(phone)) {
+                showAlert('Please enter a valid phone number.', 'error');
+                return;
+            }
+
+            console.log('Form submitted with:', { name, email, message, phone, company });
             // Show success message (in real implementation, you would send the form data)
-            showAlert('Thank you for your message! We will get back to you soon.', 'success');
-            contactForm.reset();
+            console.log('calling api to submit form');
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbz1a1OHFQcbiG7qQYMcjufU-b2ZnJ25xRq7qXyyDyCSKLL_zImK40wKae0HEAOIjdzb/exec';
+    
+            const btn = document.getElementById('submit-btn');
+            btn.textContent = 'Sending...';
+            console.log('Submitting contact form...', e.target);
+            fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(e.target),
+                })
+                .then(res => {
+                console.log('Success!', res);
+                btn.textContent = 'Sent!';
+                showAlert('Thank you for your message! We will get back to you soon.', 'success');
+                setTimeout(() => {
+                    btn.textContent = 'Send Message'; // or 'Send Message'
+                    btn.style.backgroundColor = ''; // Reset background color
+                    btn.style.color = ''; // Reset text color
+                }, 1500);
+                e.target.reset();
+                })
+                .then(() => {
+                contactForm.reset();
+                })
+                .catch(err => {
+                console.error('Error!', err.message);
+                btn.textContent = 'Try Again';
+                showAlert('There was an error submitting your form. Please try again later.', 'error');
+                });
+            
         });
 
         // Real-time validation
@@ -950,6 +986,12 @@ function initializeScrollEffects() {
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+}
+
+function isValidPhone(phone) {
+    // Basic phone validation: allows +, digits, spaces, and dashes
+    const phoneRegex = /^(\+91[\s-]?|91[\s-]?|0)?[6-9]\d{9}$/;
+    return phoneRegex.test(phone);
 }
 
 function handleResponsive() {
