@@ -149,31 +149,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            console.log('Form submitted with:', { name, email, message, phone, company });
+            // console.log('Form submitted with:', { name, email, message, phone, company });
             // Show success message (in real implementation, you would send the form data)
             console.log('calling api to submit form');
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbz1a1OHFQcbiG7qQYMcjufU-b2ZnJ25xRq7qXyyDyCSKLL_zImK40wKae0HEAOIjdzb/exec';
-    
+            // const scriptURL = '';
             const btn = document.getElementById('submit-btn');
             btn.textContent = 'Sending...';
             console.log('Submitting contact form...', e.target);
-            fetch(scriptURL, {
+
+            fetch('./contact.php', {
                 method: 'POST',
                 body: new FormData(e.target),
                 })
-                .then(res => {
-                console.log('Success!', res);
-                btn.textContent = 'Sent!';
-                showAlert('Thank you for your message! We will get back to you soon.', 'success');
-                setTimeout(() => {
-                    btn.textContent = 'Send Message'; // or 'Send Message'
-                    btn.style.backgroundColor = ''; // Reset background color
-                    btn.style.color = ''; // Reset text color
-                }, 1500);
-                e.target.reset();
-                })
-                .then(() => {
-                contactForm.reset();
+                .then(res => res.json())
+                .then(data => {
+                // contactForm.reset();
+                console.log('Response from server:', data);
+                
+                if (data.status === 'success') {
+
+                    btn.textContent = 'Sent!';
+                    showAlert('Thank you for your message! We will get back to you soon.', 'success');
+                    setTimeout(() => {
+                        btn.textContent = 'Send Message'; // or 'Send Message'
+                        btn.style.backgroundColor = ''; // Reset background color
+                        btn.style.color = ''; // Reset text color
+                    }, 1500);
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    btn.textContent = 'Try Again';
+                    showAlert('There was an error submitting your form. Please try again later.', 'error');
+                }
                 })
                 .catch(err => {
                 console.error('Error!', err.message);

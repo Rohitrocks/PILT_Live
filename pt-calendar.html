@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PT Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Other Services - PRIYAN INTERNATIONAL LAB AND TECHNOLOGY</title>
+  <meta name="description" content="Additional services including training, consultation, equipment rental, data analysis, and quality assurance support.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logo_PILT2.jpg">
+  
+  <style>
+    /* Table container to make it responsive */
+  .table-container {
+    width: 100%;
+    max-height: 600px; /* adjust vertical height */
+    overflow-y: auto;  /* vertical scroll */
+    overflow-x: auto;  /* horizontal scroll */
+    border: 1px solid #ddd;
+    margin-top: 1rem
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* use fixed if you want equal-width columns */
+    min-width: 600px; /* minimum width for the table */
+  }
+
+  /* Header styling */
+  th {
+    background-color: #3c7f95;;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+    position: sticky; /* keep header fixed when scrolling */
+    top: 0;
+    z-index: 2;
+  }
+
+  /* Cell styling */
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+
+
+  /* Adjust columns for small devices */
+  @media screen and (max-width: 600px) {
+    table {
+      font-size: 14px;
+    }
+    th, td {
+      padding: 6px;
+    }
+  }
+
+    .spinner {
+      border: 4px solid #f3f3f3; 
+      border-top: 4px solid #3498db; 
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* #sheetTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    #sheetTable th, #sheetTable td, #sheetTable tr {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    } */
+
+  </style>
+</head>
+
+<body>
+  <header class="header" id="main-header">
+      <!-- <div class="container"> -->
+      <div class="header-content header-inner">
+          <div class="logo-section animate-slide-in-left">
+              <div class="logo-placeholder">
+                  <!-- <i class="fas fa-flask"></i> -->
+                  <a href="index.html" class="logo-link">
+                  <img src="assets/images/logo_PILT2.jpg" alt="Testing Lab Logo"  />
+                  </a>
+              </div>
+              
+              <div class="company-info">
+                  <h1 class="company-name">PILT</h1>
+                  <p class="tagline typewriter" data-text="PRIYAN INTERNATIONAL LAB AND TECHNOLOGY">PRIYAN INTERNATIONAL LAB AND TECHNOLOGY</p>
+              </div>
+          </div>
+          
+          <!-- Mobile menu button -->
+          <button class="mobile-menu-btn" id="mobile-menu-btn">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+          </button>
+          
+          <!-- Navigation -->
+          <nav class="nav" id="main-nav">
+              <ul class="nav-list">
+                  <li class="nav-item nav-item-1">
+                      <a href="index.html" class="nav-link" data-tab="home">
+                          <i class="fas fa-home"></i> Home
+                      </a>
+                  </li>
+                  <li class="nav-item nav-item-2 dropdown">
+                      <a href="testing-services.html" class="nav-link dropdown-toggle">
+                          <i class="fas fa-microscope"></i> Testing Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="dropdown-item-3"><a href="services/pharmaceuticals.html" class="dropdown-link" data-tab="pharmaceuticals">Pharmaceuticals</a></li>                                                                
+                          <li class="dropdown-item-2"><a href="services/water.html" class="dropdown-link" data-tab="water-waste">Water & Residue</a></li>
+                          <li class="dropdown-item-1"><a href="services/chemical-analysis.html" class="dropdown-link" data-tab="food-agriculture">Food & Agriculture Products</a></li>
+                          <li class="dropdown-item-4"><a href="services/cosmetic.html" class="dropdown-link" data-tab="cosmetics">Cosmetics & Skin Care</a></li>
+                          <li class="dropdown-item-5"><a href="services/home-personal.html" class="dropdown-link" data-tab="personal-care">Home & Personal Care</a></li>
+                          <li class="dropdown-item-6"><a href="services/fertiliser.html" class="dropdown-link" data-tab="fertiliser">Fertiliser</a></li>
+                          <li class="dropdown-item-6"><a href="services/herbal-ayurveda.html" class="dropdown-link" data-tab="herbal">Herbal & Ayurveda</a></li>
+                          <li class="dropdown-item-6"><a href="services/dietary-supplement.htm" class="dropdown-link" data-tab="dietary">Dietary Supplements</a></li>
+                          <li class="dropdown-item-6"><a href="services/medical-devices.html" class="dropdown-link" data-tab="medical">Medical Devices</a></li>
+                          <li class="dropdown-item-6"><a href="services/polymer-pesticides.html" class="dropdown-link" data-tab="polymer">Polymer & Pesticides</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item nav-item-3 dropdown">
+                      <a href="pt-services.html" class="nav-link dropdown-toggle active">
+                          <i class="fas fa-cogs"></i> PT Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="dropdown-item-1"><a href="#" class="dropdown-link" data-tab="training">PT Areas</a></li>
+                          <li class="dropdown-item-2"><a href="#" class="dropdown-link" data-tab="method-development">PT NABL Certificates</a></li>
+                          <li class="dropdown-item-3"><a href="#" class="dropdown-link" data-tab="consultancies">PT NABL Scope</a></li>
+                          <li class="dropdown-item-4"><a href="./pt-calendar.html" class="dropdown-link" data-tab="inspection">PT Calendar</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item nav-item-4 dropdown">
+                      <a href="other-services.html" class="nav-link dropdown-toggle">
+                          <i class="fas fa-cogs"></i> Other Services <i class="fas fa-chevron-down dropdown-arrow"></i>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li class="dropdown-item-1"><a href="#" class="dropdown-link" data-tab="training">Training</a></li>
+                          <li class="dropdown-item-2"><a href="#" class="dropdown-link" data-tab="method-development">Analytical Method Development & Validation</a></li>
+                          <li class="dropdown-item-3"><a href="#" class="dropdown-link" data-tab="consultancies">Projects & Consultancies</a></li>
+                          <li class="dropdown-item-4"><a href="#" class="dropdown-link" data-tab="inspection">Inspection</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item nav-item-5">
+                      <a href="about-us.html" class="nav-link" data-tab="about">
+                          <i class="fas fa-info-circle"></i> About Us
+                      </a>
+                  </li>
+                  <li class="nav-item nav-item-6">
+                      <a href="contact-us.html" class="nav-link" data-tab="contact">
+                          <i class="fas fa-envelope"></i> Contact Us
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+      <!-- </div> -->
+  </header>
+
+  <!-- Breadcrumb -->
+  <section class="breadcrumb">
+      <div class="breadcrumb-container">
+          <nav aria-label="breadcrumb">
+              <ol>
+                  <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                  <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+                  <li><a href="pt-services.html"><i class="fas fa-calendar"></i> PT Services </a></li>
+                  <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>                  
+                  <li class="current"> PT Calendar </li>
+              </ol>
+          </nav>
+      </div>
+  </section>
+
+  <main>
+        <div class="container">
+          <h2 style="text-align:center;">PT Calendar </h2>
+          <div id="loader" style="display: none; text-align: center; padding: 20px;">
+            <img class="spinner" src="./assets/images/Loading.gif" alt="Loading..." width="50">
+            <p>Loading data, please wait...</p>
+          </div>
+          
+          <div class="table-container">
+            <table>
+              <tbody id="sheetTable"></tbody>
+            </table>
+          </div>
+
+        </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>PRIYAN INTERNATIONAL LAB AND TECHNOLOGY</h3>
+              <p>Your trusted partner for comprehensive laboratory testing services. We deliver precision, reliability, and excellence in every analysis.</p>
+              <div style="margin-top: 1rem;">
+                  <i class="fas fa-certificate" style="color: #617742; margin-right: 0.5rem;"></i>
+                  <span>ISO/IEC 17025 Accredited</span>
+              </div>
+          </div>
+
+          <div class="footer-section">
+              <h3>Additional Services</h3>
+              <ul>
+                  <li><a href="other-services.html#training">Training Programs</a></li>
+                  <li><a href="other-services.html#consultation">Technical Consultation</a></li>
+                  <li><a href="other-services.html#equipment-rental">Equipment Rental</a></li>
+                  <li><a href="other-services.html#data-analysis">Data Analysis</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>Quality Services</h3>
+              <ul>
+                  <li><a href="other-services.html#quality-assurance">Quality Assurance</a></li>
+                  <li><a href="other-services.html#reference-materials">Reference Materials</a></li>
+                  <li><a href="pt-services.html">Proficiency Testing</a></li>
+                  <li><a href="services/calibration-services.html">Calibration Services</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>Contact Info</h3>
+              <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <span>+91 8882764797 / 9355568885</span>
+              </div>
+              <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:pilt.info2021@gmail.com ">
+                  <span><strong>For PT:</strong> pilt.info2021@gmail.com </span>
+                  </a>
+              </div>
+              <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:pilt.rmp@gmail.com ">
+                  <span><strong>For RMP:</strong> pilt.rmp@gmail.com </span>
+                  </a>
+              </div>
+              <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:priyaninternationallabtech@gmail.com ">
+                  <span><strong>For General Queries:</strong> priyaninternationallabtech@gmail.com </span>
+                  </a>
+              </div>
+              <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>C-247, Sector -10,<br>Noida, Uttar Pradesh,<br>India 201301</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="footer-bottom">
+          <p>&copy; 2025 PRIYAN INTERNATIONAL LAB AND TECHNOLOGY. All rights reserved. | ISO/IEC 17025 Accredited Laboratory</p>
+      </div>
+  </footer>
+    
+  <script>
+    async function loadSheetData() {
+      const loader = document.getElementById("loader");
+      const table = document.getElementById("sheetTable");
+      loader.style.display = "block";
+
+      try {
+        const res = await fetch('./get-data.php');
+        const data = await res.json();
+        
+
+        if (data.error) {
+          document.getElementById('sheetTable').innerHTML = `<tr><td>${data.error}</td></tr>`;
+          return;
+        }
+
+        let html = "";
+        data.forEach((row, index) => {
+          html += "<tr>";
+          row.forEach((cell, colIndex) => {
+            if (index === 0) {
+              html += `<th>${cell}</th>`;
+            } else {
+              if (colIndex === 3) { 
+                // Split the text by newline or comma if needed
+                let items = cell.split("\n");
+                let formatted = items.map(item => 
+                  `${item}<hr style="margin: 4px 0; border: 0; border-top: 1px solid #ccc;">`
+                ).join("");
+
+                html += `<td>${formatted}</td>`;
+              } else {
+
+                html += `<td>${cell}</td>`;
+              }
+            }
+          });
+          html += "</tr>";
+        });
+
+        document.getElementById('sheetTable').innerHTML = html;
+      } catch (err) {
+        document.getElementById('sheetTable').innerHTML = `<tr><td>Error loading data</td></tr>`;
+      } finally {
+        // Hide loader after data load
+        loader.style.display = "none";
+      }
+    }
+    document.addEventListener("DOMContentLoaded", loadSheetData);
+  </script>
+</body>
+</html>
